@@ -21,7 +21,8 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
 
   void addKategoriBarang() async {
     //membuat object kategoriBarangModel dari class KategoriBarangModel()
-    KategoriBarangModel kategoriBarangModel = KategoriBarangModel(nama: nama!);
+    KategoriBarangModel kategoriBarangModel =
+        KategoriBarangModel(nama: nama!, id: 1);
     await kategoriBarangController.addKategoriBarang(kategoriBarangModel);
   }
 

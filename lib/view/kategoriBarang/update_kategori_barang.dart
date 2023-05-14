@@ -4,7 +4,13 @@ import 'package:kategori_app/model/kategori_barang_model.dart';
 import 'package:kategori_app/view/kategoriBarang/kategori_barang.dart';
 
 class UpdateKategoriBarang extends StatefulWidget {
-  const UpdateKategoriBarang({super.key});
+  final int? id;
+  final String? nama;
+  const UpdateKategoriBarang({
+    Key? key,
+    this.nama,
+    this.id,
+  }) : super(key: key);
 
   @override
   State<UpdateKategoriBarang> createState() => _UpdateKategoriBarangState();
