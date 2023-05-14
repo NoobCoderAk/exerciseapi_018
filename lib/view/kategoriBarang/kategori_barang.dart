@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:kategori_app/controller/kategori_barang_controller.dart';
@@ -17,8 +18,23 @@ class _KategoriBarangState extends State<KategoriBarang> {
   List<KategoriBarangModel> listKategoriBarang = [];
   // membuat variable nama tipe String
   String? nama;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getKategoriBarang();
+  }
+
+  void getKategoriBarang() async {
+    final KategoriBarang = await kategoriBarangController.getKategoriBarang();
+    setState(() {
+      listKategoriBarang = KategoriBarang;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }
