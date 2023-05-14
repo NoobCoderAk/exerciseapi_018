@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/widgets.dart';
 import 'package:kategori_app/controller/kategori_barang_controller.dart';
 import 'package:kategori_app/model/kategori_barang_model.dart';
+import 'package:kategori_app/view/kategoriBarang/kategori_barang.dart';
 
 class AddKategoriBarang extends StatefulWidget {
   const AddKategoriBarang({super.key});
@@ -24,6 +27,53 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    var formkey = GlobalKey<FormState>();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Tambah Kategori Barang'),
+      ),
+      body: Form(
+        key: formkey,
+        child: ListView(
+          padding: const EdgeInsets.all(16.0),
+          children: [
+            TextFormField(
+              decoration: const InputDecoration(
+                hintText: 'Nama Kategori Barang',
+                labelText: 'Nama Kategori Barang',
+              ),
+              onChanged: (value) {
+                nama = value;
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Nama Kategori is required';
+                }
+                return null;
+              },
+            ),
+            const SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                if (formkey.currentState!.validate()) {
+                  formkey.currentState!.save();
+                  addKategoriBarang();
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const KategoriBarang(),
+                    ),
+                  );
+                  var snackBar =
+                      const SnackBar(content: Text('Data Berhasil Disimpan'));
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                }
+              },
+              child: const Text('Simpan'),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
