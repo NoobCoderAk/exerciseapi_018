@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kategori_app/view/kategoriBarang/kategori_barang.dart';
-import 'package:kategori_app/view/kategoriBarang/update_kategori_barang.dart';
 
 void main() {
   runApp(const MyApp());

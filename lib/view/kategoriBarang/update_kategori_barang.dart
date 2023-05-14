@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kategori_app/controller/kategori_barang_controller.dart';
-import 'package:kategori_app/model/kategori_barang_model.dart';
 import 'package:kategori_app/view/kategoriBarang/kategori_barang.dart';
 
 class UpdateKategoriBarang extends StatefulWidget {
@@ -33,7 +32,7 @@ class _UpdateKategoriBarangState extends State<UpdateKategoriBarang> {
       appBar: AppBar(
         title: const Text('Edit Kategori Barang'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_circle_left_outlined),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pushReplacement(
               context,

@@ -21,12 +21,12 @@ class _KategoriBarangState extends State<KategoriBarang> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getKategoriBarang();
   }
 
   void getKategoriBarang() async {
+    // ignore: non_constant_identifier_names
     final KategoriBarang = await kategoriBarangController.getKategoriBarang();
     setState(() {
       listKategoriBarang = KategoriBarang;
