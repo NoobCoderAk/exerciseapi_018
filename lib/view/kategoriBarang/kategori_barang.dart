@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:kategori_app/controller/kategori_barang_controller.dart';
 import 'package:kategori_app/model/kategori_barang_model.dart';
 import 'package:kategori_app/view/kategoriBarang/add_kategori_barang.dart';
@@ -53,21 +51,19 @@ class _KategoriBarangState extends State<KategoriBarang> {
                 children: <Widget>[
                   IconButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const UpdateKategoriBarang(),
+                          builder: (context) => UpdateKategoriBarang(
+                            id: listKategoriBarang[index].id,
+                            nama: listKategoriBarang[index].nama,
+                          ),
                         ),
                       );
                     },
                     icon: const Icon(Icons.edit),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      //deleteKategoriBarang();
-                    },
-                    icon: const Icon(Icons.delete),
-                  )
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.delete))
                 ],
               ),
             ),
@@ -76,12 +72,10 @@ class _KategoriBarangState extends State<KategoriBarang> {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const AddKategoriBarang(),
-            ),
-          );
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const AddKategoriBarang()));
         },
         child: const Icon(Icons.add),
       ),

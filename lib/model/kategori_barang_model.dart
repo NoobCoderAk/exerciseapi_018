@@ -3,10 +3,10 @@ import 'dart:convert';
 
 class KategoriBarangModel {
   final String nama;
-  final int id;
+  var id;
   KategoriBarangModel({
     required this.nama,
-    required this.id,
+    this.id,
   });
 
   KategoriBarangModel copyWith({
@@ -20,32 +20,32 @@ class KategoriBarangModel {
   }
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'nama': nama,
-      'id': id,
+    return {
+      'nama_kategori_barang': nama,
+      'id_kategori_barang': id.toMap(),
     };
   }
 
   factory KategoriBarangModel.fromMap(Map<String, dynamic> map) {
     return KategoriBarangModel(
-      nama: map['nama'] as String,
-      id: map['id'] as int,
+      nama: map['nama_kategori_barang'] ?? '',
+      id: map['id_kategori_barang'] ?? '',
     );
   }
 
   String toJson() => json.encode(toMap());
 
   factory KategoriBarangModel.fromJson(String source) =>
-      KategoriBarangModel.fromMap(json.decode(source) as Map<String, dynamic>);
+      KategoriBarangModel.fromMap(json.decode(source));
 
   @override
   String toString() => 'KategoriBarangModel(nama: $nama, id: $id)';
 
   @override
-  bool operator ==(covariant KategoriBarangModel other) {
+  bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other.nama == nama && other.id == id;
+    return other is KategoriBarangModel && other.nama == nama && other.id == id;
   }
 
   @override

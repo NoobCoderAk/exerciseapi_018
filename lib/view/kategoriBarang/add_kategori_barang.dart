@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 import 'package:kategori_app/controller/kategori_barang_controller.dart';
 import 'package:kategori_app/model/kategori_barang_model.dart';
 import 'package:kategori_app/view/kategoriBarang/kategori_barang.dart';
+//
 
 class AddKategoriBarang extends StatefulWidget {
   const AddKategoriBarang({super.key});
@@ -21,8 +19,7 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
 
   void addKategoriBarang() async {
     //membuat object kategoriBarangModel dari class KategoriBarangModel()
-    KategoriBarangModel kategoriBarangModel =
-        KategoriBarangModel(nama: nama!, id: 1);
+    KategoriBarangModel kategoriBarangModel = KategoriBarangModel(nama: nama!);
     await kategoriBarangController.addKategoriBarang(kategoriBarangModel);
   }
 
@@ -48,7 +45,7 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
               },
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Nama Kategori is required';
+                  return 'Nama Kategori harus di isi !';
                 }
                 return null;
               },
@@ -66,7 +63,7 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
                     ),
                   );
                   var snackBar =
-                      const SnackBar(content: Text('Data Berhasil Disimpan'));
+                      const SnackBar(content: Text('Data Berhasil Disimpan !'));
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 }
               },
