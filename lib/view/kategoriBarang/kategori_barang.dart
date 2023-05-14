@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:kategori_app/controller/kategori_barang_controller.dart';
 import 'package:kategori_app/model/kategori_barang_model.dart';
 import 'package:kategori_app/view/kategoriBarang/add_kategori_barang.dart';
+import 'package:kategori_app/view/kategoriBarang/update_kategori_barang.dart';
 
 class KategoriBarang extends StatefulWidget {
   const KategoriBarang({super.key});
@@ -51,7 +52,14 @@ class _KategoriBarangState extends State<KategoriBarang> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const UpdateKategoriBarang(),
+                        ),
+                      );
+                    },
                     icon: const Icon(Icons.edit),
                   ),
                   IconButton(
@@ -69,9 +77,11 @@ class _KategoriBarangState extends State<KategoriBarang> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const AddKategoriBarang()));
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddKategoriBarang(),
+            ),
+          );
         },
         child: const Icon(Icons.add),
       ),

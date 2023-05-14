@@ -32,4 +32,6 @@ class KategoriBarangController {
       throw Exception('Gagal menambahkan data kategori barang !');
     }
   }
+
+  Future updateKategoriBarang(KategoriBarangModel kategoriBarang) async {}
 }
