@@ -17,12 +17,14 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
   //membuat variable nama tipe string
   String? nama;
 
+  // method add kategori barang
   void addKategoriBarang() async {
     //membuat object kategoriBarangModel dari class KategoriBarangModel()
     KategoriBarangModel kategoriBarangModel = KategoriBarangModel(nama: nama!);
     await kategoriBarangController.addKategoriBarang(kategoriBarangModel);
   }
 
+  // UI add kategori barang
   @override
   Widget build(BuildContext context) {
     var formkey = GlobalKey<FormState>();

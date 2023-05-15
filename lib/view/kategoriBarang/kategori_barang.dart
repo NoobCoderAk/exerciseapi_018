@@ -25,6 +25,7 @@ class _KategoriBarangState extends State<KategoriBarang> {
     getKategoriBarang();
   }
 
+  // method untuk get data kategori barang
   void getKategoriBarang() async {
     // ignore: non_constant_identifier_names
     final KategoriBarang = await kategoriBarangController.getKategoriBarang();
@@ -33,6 +34,12 @@ class _KategoriBarangState extends State<KategoriBarang> {
     });
   }
 
+  // method untuk delete kategori barang
+  void deleteKategoriBarang(int id) async {
+    await kategoriBarangController.deleteKategoriBarang(id);
+  }
+
+  // UI Kategori barang
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +70,14 @@ class _KategoriBarangState extends State<KategoriBarang> {
                     },
                     icon: const Icon(Icons.edit),
                   ),
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.delete))
+                  IconButton(
+                      onPressed: () {
+                        deleteKategoriBarang(listKategoriBarang[index].id);
+                        setState(() {
+                          listKategoriBarang.removeAt(index);
+                        });
+                      },
+                      icon: const Icon(Icons.delete))
                 ],
               ),
             ),

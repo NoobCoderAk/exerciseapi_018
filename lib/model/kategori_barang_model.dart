@@ -3,6 +3,7 @@ import 'dart:convert';
 
 class KategoriBarangModel {
   final String nama;
+  // ignore: prefer_typing_uninitialized_variables
   var id;
   KategoriBarangModel({
     required this.nama,

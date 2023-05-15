@@ -21,10 +21,12 @@ class _UpdateKategoriBarangState extends State<UpdateKategoriBarang> {
   //membuat variable nama tipe string
   String? nama;
 
+  // method update kategori barang
   void updateKategoriBarang(int id, String nama) async {
     await kategoriBarangController.updateKategoriBarang(id, nama);
   }
 
+  // UI update kategori barang
   @override
   Widget build(BuildContext context) {
     var formkey = GlobalKey<FormState>();
